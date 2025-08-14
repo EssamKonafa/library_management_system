@@ -93,23 +93,38 @@ npm run dev
 ## enviroment variables
 
 PORT=8080
+
 DB_TYPE=postgres
+
 DB_USER=postgres
+
 DB_NAME=library_management_system
+
 DB_PASSWORD=postgres
+
 DB_PORT=5432
+
 DB_DEFAULT=postgres
+
 JWT_SECRET=2b$10$gfOKYfxhN8ug3T3nhU8AZ
+
 NODE_ENVIRONMENT='test'
+
 
 ##########################################
 #for local
+
 #DB_HOST=localhost
+
 #DB_USER_NAME=library_management_system
 
+
 #for docker
+
 DB_HOST=db
+
 DB_USER_NAME=postgres
+
 
 
 ---
@@ -121,6 +136,40 @@ After running the application, Swagger documentation is available at:
 ```
 http://localhost:8080/api-docs
 ```
+---
+
+## 📚 API Endpoints
+
+### Books
+
+* **POST** `/books` – Create a new book
+* **GET** `/books` – Get all books
+* **GET** `/books/:id` – Get a book by ID
+* **PATCH** `/books/:id` – Update a book
+* **DELETE** `/books/:id` – Delete a book
+
+### Borrowers (Protected)
+
+* **GET** `/borrowers` – Get all borrowers
+* **GET** `/borrowers/:id` – Get a borrower by ID
+* **PATCH** `/borrowers/:id` – Update a borrower
+* **DELETE** `/borrowers/:id` – Delete a borrower
+
+### Auth
+
+* **POST** `/auth/signup` – Register a new borrower
+* **POST** `/auth/signin` – Sign in
+
+### Borrowing
+
+* **GET** `/borrowing` – Get all borrowed books *(Rate limited)*
+* **POST** `/borrowing/checkout` – Make a new borrow *(Rate limited)*
+* **PATCH** `/borrowing/return` – Return a borrowed book
+* **GET** `/borrowing/overdue` – Get all overdue books
+* **GET** `/borrowing/report` – Download borrowing report (CSV)
+* **GET** `/borrowing/overdue-last-month` – Get overdue borrows for last month
+* **GET** `/borrowing/all-borrows-last-month` – Get all borrows for last month
+* **GET** `/borrowing/borrower/:borrowerId` – Get borrowed books by borrower ID
 
 ---
 
