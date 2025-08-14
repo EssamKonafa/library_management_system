@@ -1,17 +1,29 @@
-import app from './app';
-import { pool } from './config/database';
+import dotenv from "dotenv";
+import app from "./app";
+import { AppDataSource, createDatabaseIfNotExists, } from "./config/database";
+import { seedBooksIfEmpty } from "./config/book.seed";
+
+dotenv.config();
 
 const PORT = process.env.PORT || 8080;
 
-pool.connect((err, client, release) => {
-    if (err) {
-        console.error('Error connecting to PostgreSQL:', err);
-        return;
-    }
-    console.log('Connected to PostgreSQL successfully!');
-    release();
-});
+async function bootstrap() {
+    try {
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+        // await createDatabaseIfNotExists();
+
+        await AppDataSource.initialize();
+        console.log("Connected to PostgreSQL successfully");
+
+        await seedBooksIfEmpty();
+
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+        });
+    } catch (error) {
+        console.error("Error starting application:", error);
+        process.exit(1);
+    }
+}
+
+bootstrap();

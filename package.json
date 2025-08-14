@@ -3,22 +3,68 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "test": "jest",
+    "test:watch": "jest --config=jest.config.js --watch",
+    "test:coverage": "jest --config=jest.config.js --coverage"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "rootDir": "./",
+    "testMatch": [
+      "**/__tests__/**/*.test.ts",
+      "**/?(*.)+(spec|test).ts"
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.d.ts",
+      "!src/**/index.ts"
+    ],
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "html"
+    ]
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "bcrypt": "^6.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
     "dotenv": "^17.2.1",
+    "exceljs": "^4.4.0",
     "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "luxon": "^3.7.1",
     "pg": "^8.16.3",
+    "sqlite3": "^5.1.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "typeorm": "^0.3.25"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/luxon": "^3.7.1",
     "@types/node": "^24.2.1",
     "@types/pg": "^8.15.5",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
+    "jest": "^29.7.0",
+    "supertest": "^7.1.4",
+    "ts-jest": "^29.4.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.2"
   }

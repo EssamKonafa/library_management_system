@@ -1,0 +1,27 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es2020",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "strictPropertyInitialization": false,
+        "resolveJsonModule": true
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.spec.ts",
+        "tests/**/*.ts",
+        "__tests__/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "coverage"
+    ]
+}
