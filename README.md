@@ -166,7 +166,7 @@ http://localhost:8080/api-docs
 * **POST** `/borrowing/checkout` – Make a new borrow *(Rate limited)*
 * **PATCH** `/borrowing/return` – Return a borrowed book
 * **GET** `/borrowing/overdue` – Get all overdue books
-* **GET** `/borrowing/report` – Download borrowing report (CSV)
+* **GET** `/borrowing/report` – Download borrowing report (XLSX)
 * **GET** `/borrowing/overdue-last-month` – Get overdue borrows for last month
 * **GET** `/borrowing/all-borrows-last-month` – Get all borrows for last month
 * **GET** `/borrowing/borrower/:borrowerId` – Get borrowed books by borrower ID
