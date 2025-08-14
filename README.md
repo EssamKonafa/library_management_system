@@ -78,7 +78,7 @@ This is a back-end API of a **Library Management System** built with **Node.js**
 
 ```bash
 # Clone the repository
-git clone <repo-link>
+git clone [<repo-link>](https://github.com/EssamKonafa/library_management_system.git)
 cd library-management-system
 
 # Install dependencies
